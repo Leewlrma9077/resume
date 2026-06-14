@@ -1,39 +1,31 @@
 import SectionWrapper from './SectionWrapper';
-import Panel from './GlassCard';
 import { education } from '../data/resumeData';
 
 export default function Education() {
   return (
-    <SectionWrapper id="education">
-      <div className="heading-block text-center">
-        <p className="overline">Education</p>
-        <h2 className="text-gold">教育背景</h2>
-        <div className="gold-rule mt-6" />
-      </div>
+    <SectionWrapper id="education" num="02 / 教育背景">
+      <h2 className="heading-lg mb-12">教育背景</h2>
 
-      <div className="relative max-w-3xl mx-auto">
-        {/* Timeline: gold vertical line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-gold-dim to-transparent opacity-20" />
+      {/* Horizontal timeline */}
+      <div className="relative">
+        {/* Line */}
+        <div className="absolute top-3 left-0 right-0 h-px bg-hairline hidden md:block" />
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-0">
           {education.map((edu, i) => (
-            <div key={edu.id} className="relative pl-12 md:pl-0 animate-fade-up" style={{ animationDelay: `${i * 0.12}s` }}>
-              {/* Diamond marker */}
-              <div className="absolute left-[13px] md:left-1/2 top-6 -translate-x-1/2 z-10">
-                <div className="gold-diamond" />
-              </div>
+            <div key={edu.id} className="flex-1 md:px-3 first:pl-0 last:pr-0">
+              {/* Dot */}
+              <div className="hidden md:block w-2 h-2 rounded-full bg-accent mb-5 relative z-10 mx-auto" />
 
-              <div className={`md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
-                <Panel>
-                  <span className="font-mono text-[0.65rem] tracking-wider text-gold-dim uppercase">
-                    {edu.start} — {edu.end}
-                  </span>
-                  <h3 className="text-lg font-semibold text-parchment mt-2 mb-1">{edu.school}</h3>
-                  <p className="text-sm text-gold font-mono">
-                    {edu.major ? `${edu.major} · ` : ''}{edu.degree}
-                  </p>
-                  <p className="text-xs text-warm-gray mt-1">{edu.badge}</p>
-                </Panel>
+              <div className="md:text-center">
+                <span className="font-mono text-[0.6rem] tracking-wider text-muted uppercase">
+                  {edu.start} — {edu.end}
+                </span>
+                <h3 className="text-sm font-medium text-ink mt-2 mb-1 font-display">{edu.school}</h3>
+                <p className="text-xs text-muted">
+                  {edu.major ? `${edu.major} · ` : ''}{edu.degree}
+                </p>
+                <p className="text-[0.6rem] text-muted/60 mt-1">{edu.badge}</p>
               </div>
             </div>
           ))}

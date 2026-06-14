@@ -2,43 +2,35 @@ import { personal, contact } from '../data/resumeData';
 
 export default function Contact() {
   return (
-    <footer id="contact" className="relative z-10 py-28 md:py-36 px-6 md:px-12">
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="heading-block text-center">
-          <p className="overline">Contact</p>
-          <h2 className="text-gold">联系我</h2>
-          <div className="gold-rule mt-6" />
-        </div>
+    <footer id="contact" className="relative z-10 py-section px-6 md:px-10">
+      <div className="max-w-[720px] mx-auto">
+        <div className="hr mb-16" />
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-16 animate-fade-up">
+        <div className="section-num mb-8">07 / 联系我</div>
+        <h2 className="heading-lg mb-12">联系我</h2>
+
+        <div className="flex flex-col md:flex-row gap-6 md:gap-16 text-sm mb-20">
           <a
             href={`mailto:${contact.email}`}
-            className="group flex flex-col items-center gap-3 text-warm-gray hover:text-gold transition-colors duration-500"
+            className="text-muted hover:text-accent transition-colors font-mono text-xs underline-accent"
           >
-            <div className="w-14 h-14 panel !p-0 flex items-center justify-center text-xl group-hover:border-gold/30 transition-all duration-500">
-              ✉
-            </div>
-            <span className="text-xs font-mono">{contact.email}</span>
+            {contact.email}
           </a>
-
-          <div className="group flex flex-col items-center gap-3 text-warm-gray">
-            <div className="w-14 h-14 panel !p-0 flex items-center justify-center text-xl">
-              📍
-            </div>
-            <span className="text-xs font-mono">{contact.location}</span>
-          </div>
+          <span className="text-muted font-mono text-xs">{contact.location}</span>
         </div>
 
-        <div className="animate-fade-up delay-300">
-          <p className="text-2xl font-display font-semibold text-gold mb-2">{personal.name}</p>
-          <p className="text-warm-gray text-xs font-mono tracking-wider">
-            {personal.nameEn} · {personal.title}
-          </p>
-          <div className="gold-rule mt-10 mb-8" />
-          <p className="text-[0.6rem] text-warm-gray/30 font-mono tracking-[0.2em] uppercase">
-            Designed & Built with React · Three.js
-          </p>
-        </div>
+        <div className="hr mb-12" />
+
+        <p className="text-2xl font-display font-semibold text-ink mb-2">
+          {personal.name}
+        </p>
+        <p className="text-xs text-muted font-mono mb-16">
+          {personal.nameEn} · {personal.title}
+        </p>
+
+        <p className="font-mono text-[0.55rem] tracking-[0.25em] text-muted/30 uppercase">
+          Designed with restraint · React & CSS
+        </p>
       </div>
     </footer>
   );

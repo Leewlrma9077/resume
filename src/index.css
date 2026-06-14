@@ -1,173 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════
-   GOLD LEAF DARKROOM · DESIGN SYSTEM
+   BRUTALLY MINIMAL · SWISS EDITORIAL
    ═══════════════════════════════════════════ */
 
 :root {
-  --ink: #0a0906;
-  --gold: #c9a24e;
-  --gold-light: #e0c87d;
-  --gold-dim: #8b6914;
-  --parchment: #e8e0d0;
-  --warm-gray: #9a9282;
-  --card: #12100c;
-  --gold-10: rgba(201, 162, 78, 0.10);
-  --gold-15: rgba(201, 162, 78, 0.15);
-  --gold-25: rgba(201, 162, 78, 0.25);
-  --gold-40: rgba(201, 162, 78, 0.40);
+  --surface: #fafaf7;
+  --paper: #f4f4ef;
+  --ink: #171712;
+  --muted: #787870;
+  --accent: #2c5f2d;
+  --accent-light: #e8efe8;
+  --hairline: #e8e8e2;
 }
 
 @layer base {
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-    background: var(--ink);
-  }
+  html { scroll-behavior: smooth; background: var(--surface); }
 
   body {
-    background: var(--ink);
-    color: var(--parchment);
+    background: var(--surface);
+    color: var(--ink);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Noto Serif SC', 'STSong', serif;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
   }
 
   ::selection {
-    background: var(--gold-25);
-    color: var(--parchment);
+    background: var(--accent-light);
+    color: var(--accent);
   }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--ink); }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--gold-dim), var(--gold));
-    border-radius: 2px;
-  }
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--hairline); }
 }
 
 @layer components {
-  /* ── Gold rule (horizontal decorative line) ── */
-  .gold-rule {
-    width: 80px;
+  /* ── Hairline divider ── */
+  .hr {
+    width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-40), transparent);
-    margin: 0 auto;
-  }
-  .gold-rule-left {
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold-40), transparent);
-  }
-  .gold-rule-right {
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-40));
+    background: var(--hairline);
+    border: none;
+    transform-origin: left;
   }
 
-  /* ── Gold diamond marker ── */
-  .gold-diamond {
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    transform: rotate(45deg);
-    display: inline-block;
-    opacity: 0.6;
-  }
-
-  /* ── Section panel (replaces glass card) ── */
-  .panel {
-    background: var(--card);
-    border: 1px solid rgba(201, 162, 78, 0.08);
-    border-radius: 2px;
-    padding: 2rem;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease;
-  }
-  .panel:hover {
-    border-color: var(--gold-25);
-    box-shadow: 0 0 60px rgba(201, 162, 78, 0.04), 0 0 0 1px rgba(201, 162, 78, 0.04) inset;
-  }
-
-  /* ── Gradient text: gold ── */
-  .text-gold {
-    background: linear-gradient(160deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dim) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ── Decorative frame for avatar ── */
-  .gold-frame {
-    position: relative;
-    border-radius: 50%;
-  }
-  .gold-frame::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: inherit;
-    padding: 2px;
-    background: conic-gradient(from 0deg, var(--gold), var(--gold-dim), var(--gold-light), var(--gold));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  }
-
-  /* ── Section heading ── */
-  .heading-block {
-    margin-bottom: 4rem;
-  }
-  .heading-block .overline {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+  /* ── Section number marker ── */
+  .section-num {
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--accent);
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    opacity: 0.7;
   }
-  .heading-block h2 {
-    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+
+  /* ── Heading (editorial) ── */
+  .heading-xl {
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
     font-size: 2.5rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--parchment);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--ink);
   }
   @media (min-width: 768px) {
-    .heading-block h2 { font-size: 3rem; }
+    .heading-xl { font-size: 3.25rem; }
   }
 
-  /* ── Noise grain overlay ── */
-  .grain {
+  .heading-lg {
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  @media (min-width: 768px) {
+    .heading-lg { font-size: 2.25rem; }
+  }
+
+  /* ── Body text ── */
+  .body-lg {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── Tag pill ── */
+  .tag {
+    display: inline-block;
+    padding: 0.3em 0.9em;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    color: var(--accent);
+    background: var(--accent-light);
+    border-radius: 2px;
+  }
+
+  /* ── Subtle geometric background ── */
+  .geo-bg {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 9998;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 180px 180px;
+    z-index: 0;
+    opacity: 0.4;
+    background-image:
+      linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: -40px -40px;
+  }
+  @media (min-width: 768px) {
+    .geo-bg { background-size: 120px 120px; }
+  }
+
+  /* ── Progress bar (top of page) ── */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 9999;
+    transition: width 0.1s linear;
   }
 }
 
 @layer utilities {
-  .text-glow-gold {
-    text-shadow: 0 0 40px rgba(201, 162, 78, 0.2), 0 0 80px rgba(201, 162, 78, 0.08);
+  .underline-accent {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
   }
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-500 { animation-delay: 0.5s; }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-reveal {
+    animation: reveal 0.7s ease-out forwards;
+    opacity: 0;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
 }
