@@ -15,7 +15,7 @@ export default function Hero() {
         >
           <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden glow-border">
             <img
-              src="/photos/avatar.jpg"
+              src={import.meta.env.BASE_URL + 'photos/avatar.jpg'}
               alt="李想"
               className="w-full h-full object-cover"
             />

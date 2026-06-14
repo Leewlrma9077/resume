@@ -62,7 +62,7 @@ export default function About() {
         <div className="flex-1 glass p-2 overflow-hidden">
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
             <img
-              src="/photos/life1.jpg"
+              src={import.meta.env.BASE_URL + 'photos/life1.jpg'}
               alt="生活照"
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -75,7 +75,7 @@ export default function About() {
         <div className="flex-1 glass p-2 overflow-hidden">
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
             <img
-              src="/photos/life2.jpg"
+              src={import.meta.env.BASE_URL + 'photos/life2.jpg'}
               alt="生活照"
               className="w-full h-full object-cover"
               onError={(e) => {
