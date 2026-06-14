@@ -15,8 +15,8 @@ export default function App() {
       {/* 3D Background */}
       <Scene3D />
 
-      {/* Scanline overlay */}
-      <div className="scanline" />
+      {/* Noise texture overlay */}
+      <div className="noise-overlay" />
 
       {/* Navigation */}
       <NavDots />

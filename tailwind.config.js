@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-deep': '#06060e',
-        'accent-blue': '#4da8da',
-        'accent-purple': '#8b5cf6',
-        'accent-cyan': '#06b6d4',
-        'text-primary': '#e2e8f0',
-        'text-secondary': '#94a3b8',
+        'bg-deep': '#0d0b08',
+        'accent-blue': '#d4a853',
+        'accent-purple': '#c9953f',
+        'accent-cyan': '#e8c97a',
+        'text-primary': '#f5f0e8',
+        'text-secondary': '#a09888',
       },
       fontFamily: {
         sans: ['"PingFang SC"', '"Microsoft YaHei"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
