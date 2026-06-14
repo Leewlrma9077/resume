@@ -68,7 +68,7 @@ export const skills = [
   {
     category: '编程语言',
     icon: '💻',
-    items: ['C/C++', 'ST (IEC 61131-3)', 'FBD', 'Python'],
+    items: ['C/C++', 'ST', 'FBD', 'Python'],
   },
   {
     category: '嵌入式平台',
@@ -78,17 +78,17 @@ export const skills = [
   {
     category: '通信接口',
     icon: '🔗',
-    items: ['UART / I2C / SPI', 'CAN 总线', 'DMA', '自定义通信协议'],
+    items: ['UART / I2C / SPI', 'CAN 总线', '自定义通信协议'],
   },
   {
     category: '硬件工程',
     icon: '📐',
-    items: ['电路原理图设计', 'PCB Layout', '多层板设计', '硬件调试与测试'],
+    items: ['电路原理图设计', 'PCB Layout', '硬件调试与测试'],
   },
   {
     category: '工业自动化',
     icon: '🏭',
-    items: ['IEC 61499 标准', 'CoDeSys 平台', 'EcoStruxure AE', 'DCS 分布式控制'],
+    items: ['IEC 61131 / IEC 61499', 'CoDeSys 平台', 'EcoStruxure AE', 'DCS 分布式控制'],
   },
 ];
 

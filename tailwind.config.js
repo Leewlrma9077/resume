@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-deep': '#0a0a12',
+        'bg-deep': '#06060e',
         'accent-blue': '#4da8da',
         'accent-purple': '#8b5cf6',
         'accent-cyan': '#06b6d4',
