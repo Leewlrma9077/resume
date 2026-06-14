@@ -64,7 +64,7 @@ export default function About() {
             <img
               src={import.meta.env.BASE_URL + 'photos/life1.jpg'}
               alt="生活照"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover object-right"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.parentElement.innerHTML = '<span class=\"text-text-secondary/40 text-sm font-mono\">📷 生活照 1</span>';
@@ -77,7 +77,7 @@ export default function About() {
             <img
               src={import.meta.env.BASE_URL + 'photos/life2.jpg'}
               alt="生活照"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.parentElement.innerHTML = '<span class=\"text-text-secondary/40 text-sm font-mono\">📷 生活照 2</span>';
