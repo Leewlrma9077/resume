@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,5 +73,30 @@
   }
   .text-glow-purple {
     text-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
+  }
+  .font-artistic {
+    font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif;
+  }
+  .font-serif-sc {
+    font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
+  }
+  .text-ornament {
+    position: relative;
+  }
+  .text-ornament::before,
+  .text-ornament::after {
+    content: '◆';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4da8da;
+    font-size: 0.4em;
+    opacity: 0.5;
+  }
+  .text-ornament::before {
+    left: -1.2em;
+  }
+  .text-ornament::after {
+    right: -1.2em;
   }
 }

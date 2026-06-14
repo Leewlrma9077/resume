@@ -5,6 +5,23 @@ export default function Hero() {
   return (
     <section id="hero" className="relative z-10 min-h-screen flex items-center justify-center px-4">
       <div className="text-center max-w-3xl mx-auto">
+
+        {/* Profile Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-8 inline-block"
+        >
+          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden glow-border">
+            <img
+              src="/photos/avatar.jpg"
+              alt="李想"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +72,7 @@ export default function Hero() {
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <div className="flex flex-col items-center gap-2 text-text-secondary">
-            <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
+            <span className="text-xs font-mono tracking-widest">向下滚动</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}

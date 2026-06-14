@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 import { about } from '../data/resumeData';
 
@@ -43,12 +44,48 @@ function TypewriterText({ text, speed = 60 }) {
 export default function About() {
   return (
     <SectionWrapper id="about">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3">
+      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
         <span className="gradient-text">关于我</span>
       </h2>
-      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-12">About Me</p>
+      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-12 text-center">About Me</p>
 
       <TypewriterText text={about.headline} />
+
+      {/* Life Photos */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col md:flex-row justify-center gap-6 mb-12 max-w-3xl mx-auto"
+      >
+        <div className="flex-1 glass p-2 overflow-hidden">
+          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
+            <img
+              src="/photos/life1.jpg"
+              alt="生活照"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<span class=\"text-text-secondary/40 text-sm font-mono\">📷 生活照 1</span>';
+              }}
+            />
+          </div>
+        </div>
+        <div className="flex-1 glass p-2 overflow-hidden">
+          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
+            <img
+              src="/photos/life2.jpg"
+              alt="生活照"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<span class=\"text-text-secondary/40 text-sm font-mono\">📷 生活照 2</span>';
+              }}
+            />
+          </div>
+        </div>
+      </motion.div>
 
       <div className="flex flex-wrap justify-center gap-3">
         {about.tags.map((tag) => (

@@ -34,16 +34,6 @@ export default function Contact() {
             <span className="text-sm font-mono">{contact.email}</span>
           </a>
 
-          <a
-            href={`tel:${contact.phone}`}
-            className="group flex flex-col items-center gap-2 text-text-secondary hover:text-accent-blue transition-colors duration-300"
-          >
-            <div className="w-14 h-14 glass flex items-center justify-center text-2xl group-hover:border-accent-blue/40 group-hover:shadow-[0_0_20px_rgba(77,168,218,0.15)] transition-all duration-300">
-              📞
-            </div>
-            <span className="text-sm font-mono">{contact.phone}</span>
-          </a>
-
           <div className="group flex flex-col items-center gap-2 text-text-secondary">
             <div className="w-14 h-14 glass flex items-center justify-center text-2xl">
               📍

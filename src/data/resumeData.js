@@ -6,7 +6,6 @@ export const personal = {
 };
 
 export const contact = {
-  phone: '15093469077',
   email: 'lixiang0721@outlook.com',
   location: '上海',
 };
@@ -34,6 +33,33 @@ export const education = [
     badge: '一本 · 一流学科',
     start: '2019-08',
     end: '2023-06',
+  },
+  {
+    id: 3,
+    degree: '高中',
+    major: '理科',
+    school: '郑州市第十一中学',
+    badge: '省级示范性高中',
+    start: '2016-09',
+    end: '2019-06',
+  },
+  {
+    id: 4,
+    degree: '初中',
+    major: '',
+    school: '郑州市第八中学',
+    badge: '郑州市重点中学',
+    start: '2013-09',
+    end: '2016-06',
+  },
+  {
+    id: 5,
+    degree: '小学',
+    major: '',
+    school: '河南省实验小学',
+    badge: '河南省重点小学',
+    start: '2007-09',
+    end: '2013-06',
   },
 ];
 
@@ -143,8 +169,8 @@ export const achievements = [
   {
     id: 2,
     label: '专利申请',
-    value: '4+ 项',
-    detail: '《绿叶菜自动收割整理装筐机器人》等多篇发明专利',
+    value: '5+ 项',
+    detail: '《一种农机开放式多核控制器及其资源虚拟化映射方法》、《绿叶菜自动收割整理装筐机器人》等多篇发明专利',
     icon: '📜',
   },
   {
