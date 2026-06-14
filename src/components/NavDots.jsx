@@ -18,9 +18,7 @@ export default function NavDots() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
       { threshold: 0.3 }
@@ -35,7 +33,7 @@ export default function NavDots() {
   }, []);
 
   return (
-    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4">
+    <nav className="fixed right-5 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-5">
       {sections.map(({ id, label }) => (
         <a
           key={id}
@@ -43,14 +41,14 @@ export default function NavDots() {
           className="group flex items-center gap-3"
           aria-label={label}
         >
-          <span className="text-xs text-text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <span className="text-[0.6rem] font-mono text-warm-gray/0 group-hover:text-warm-gray/50 transition-all duration-300 tracking-wider uppercase">
             {label}
           </span>
           <span
-            className={`block w-2.5 h-2.5 rounded-full border transition-all duration-300 ${
+            className={`block transition-all duration-500 ${
               active === id
-                ? 'bg-accent-blue border-accent-blue shadow-[0_0_10px_rgba(77,168,218,0.6)]'
-                : 'bg-transparent border-white/20 hover:border-white/50'
+                ? 'w-1.5 h-1.5 bg-gold rotate-45'
+                : 'w-1 h-1 bg-warm-gray/15 group-hover:bg-warm-gray/30'
             }`}
           />
         </a>

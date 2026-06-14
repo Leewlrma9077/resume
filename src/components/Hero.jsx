@@ -1,85 +1,61 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { personal } from '../data/resumeData';
 
 export default function Hero() {
-  return (
-    <section id="hero" className="relative z-10 min-h-screen flex items-center justify-center px-4">
-      <div className="text-center max-w-3xl mx-auto">
+  const sectionRef = useRef();
 
-        {/* Profile Photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-8 inline-block"
-        >
-          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden glow-border">
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    el.style.opacity = '0';
+    requestAnimationFrame(() => {
+      el.style.transition = 'opacity 1.2s ease-out';
+      el.style.opacity = '1';
+    });
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="relative z-10 min-h-screen flex items-center px-6 md:px-20"
+    >
+      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
+        {/* Left: Photo */}
+        <div className="shrink-0 animate-fade-up">
+          <div className="w-40 h-40 md:w-52 md:h-52 gold-frame">
             <img
               src={import.meta.env.BASE_URL + 'photos/avatar.jpg'}
-              alt="李想"
-              className="w-full h-full object-cover"
+              alt={personal.name}
+              className="w-full h-full object-cover rounded-full"
             />
           </div>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-accent-blue font-mono text-sm tracking-[0.2em] uppercase mb-6"
-        >
-          {personal.nameEn} · {personal.title}
-        </motion.p>
+        {/* Right: Text */}
+        <div className="flex-1 text-center md:text-left animate-fade-up delay-200">
+          <p className="overline font-mono text-gold text-xs tracking-[0.3em] uppercase mb-6">
+            {personal.nameEn}
+          </p>
 
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6"
-        >
-          <span className="gradient-text text-glow-blue">{personal.name}</span>
-        </motion.h1>
+          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-5 text-parchment">
+            {personal.name}
+          </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-xl md:text-2xl text-text-secondary font-light mb-12 tracking-wide"
-        >
-          {personal.subtitle}
-        </motion.p>
+          <div className="gold-rule-left mb-6" />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          {['嵌入式系统', '工控自动化', '软硬件全栈'].map((tag) => (
-            <span
-              key={tag}
-              className="px-5 py-2 glass text-sm text-accent-blue font-mono"
-            >
-              {tag}
-            </span>
-          ))}
-        </motion.div>
+          <p className="font-body text-xl md:text-2xl text-warm-gray font-light tracking-wide">
+            {personal.title} · {personal.subtitle}
+          </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2 text-text-secondary">
-            <span className="text-xs font-mono tracking-widest">向下滚动</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-4 h-4 border-r-2 border-b-2 border-accent-blue rotate-45"
-            />
+          <div className="flex flex-wrap gap-3 mt-10 justify-center md:justify-start">
+            {['嵌入式系统', '工业自动化', '软硬件全栈'].map((tag) => (
+              <span key={tag} className="panel !py-2 !px-5 text-xs text-gold font-mono">
+                {tag}
+              </span>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

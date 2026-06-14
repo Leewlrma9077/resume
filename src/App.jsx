@@ -11,17 +11,10 @@ import NavDots from './components/NavDots';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-bg-deep text-text-primary">
-      {/* 3D Background */}
+    <div className="relative min-h-screen bg-ink text-parchment">
       <Scene3D />
-
-      {/* Noise texture overlay */}
-      <div className="noise-overlay" />
-
-      {/* Navigation */}
+      <div className="grain" />
       <NavDots />
-
-      {/* Content Sections */}
       <main>
         <Hero />
         <About />

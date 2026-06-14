@@ -1,52 +1,41 @@
-import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
-import GlassCard from './GlassCard';
+import Panel from './GlassCard';
 import { education } from '../data/resumeData';
 
 export default function Education() {
   return (
     <SectionWrapper id="education">
-      <div className="section-heading">
-        <p className="en-label">Education</p>
-        <h2><span className="gradient-text">教育背景</span></h2>
-        <div className="section-divider mt-5" />
+      <div className="heading-block text-center">
+        <p className="overline">Education</p>
+        <h2 className="text-gold">教育背景</h2>
+        <div className="gold-rule mt-6" />
       </div>
 
       <div className="relative max-w-3xl mx-auto">
-        {/* Timeline line */}
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-blue via-accent-purple to-transparent" />
+        {/* Timeline: gold vertical line */}
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-gold-dim to-transparent opacity-20" />
 
         <div className="flex flex-col gap-6">
           {education.map((edu, i) => (
-            <motion.div
-              key={edu.id}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative pl-14 md:pl-0"
-            >
-              {/* Center dot */}
-              <div className="absolute left-[18px] md:left-1/2 top-6 w-3 h-3 rounded-full bg-accent-purple shadow-[0_0_12px_rgba(139,92,246,0.6)] -translate-x-1/2 z-10" />
+            <div key={edu.id} className="relative pl-12 md:pl-0 animate-fade-up" style={{ animationDelay: `${i * 0.12}s` }}>
+              {/* Diamond marker */}
+              <div className="absolute left-[13px] md:left-1/2 top-6 -translate-x-1/2 z-10">
+                <div className="gold-diamond" />
+              </div>
 
-              <div className={`md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:ml-auto md:pl-0' : 'md:mr-auto md:pr-0'}`}>
-                <GlassCard>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-accent-blue shadow-[0_0_8px_rgba(77,168,218,0.8)]" />
-                    <span className="text-xs font-mono text-accent-blue">
-                      {edu.start} ~ {edu.end}
-                    </span>
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold text-text-primary mb-1">
-                    {edu.school}
-                  </h3>
-                  <p className="text-accent-blue font-mono text-sm mb-1">
+              <div className={`md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
+                <Panel>
+                  <span className="font-mono text-[0.65rem] tracking-wider text-gold-dim uppercase">
+                    {edu.start} — {edu.end}
+                  </span>
+                  <h3 className="text-lg font-semibold text-parchment mt-2 mb-1">{edu.school}</h3>
+                  <p className="text-sm text-gold font-mono">
                     {edu.major ? `${edu.major} · ` : ''}{edu.degree}
                   </p>
-                  <p className="text-text-secondary text-xs">{edu.badge}</p>
-                </GlassCard>
+                  <p className="text-xs text-warm-gray mt-1">{edu.badge}</p>
+                </Panel>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

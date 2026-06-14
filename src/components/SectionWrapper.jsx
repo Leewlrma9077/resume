@@ -1,20 +1,31 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 export default function SectionWrapper({ id, children, className = '' }) {
+  const ref = useRef();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section
+      ref={ref}
       id={id}
-      className={`relative z-10 min-h-screen flex items-center justify-center py-24 px-4 ${className}`}
+      className={`relative z-10 py-28 md:py-36 px-6 md:px-12 transition-all duration-[1200ms] ease-out ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      } ${className}`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="w-full max-w-5xl mx-auto"
-      >
-        {children}
-      </motion.div>
+      <div className="max-w-5xl mx-auto">{children}</div>
     </section>
   );
 }
