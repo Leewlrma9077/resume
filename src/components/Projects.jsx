@@ -11,10 +11,11 @@ export default function Projects() {
 
   return (
     <SectionWrapper id="projects">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
-        <span className="gradient-text">项目经验</span>
-      </h2>
-      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-16 text-center">Projects</p>
+      <div className="section-heading">
+        <p className="en-label">Projects</p>
+        <h2><span className="gradient-text">项目经验</span></h2>
+        <div className="section-divider mt-5" />
+      </div>
 
       <div className="flex flex-col gap-5 max-w-4xl mx-auto">
         {projects.map((project, i) => {

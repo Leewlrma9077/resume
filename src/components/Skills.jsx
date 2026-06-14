@@ -57,10 +57,11 @@ function SkillCard({ skill, index }) {
 export default function Skills() {
   return (
     <SectionWrapper id="skills">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
-        <span className="gradient-text">技能特长</span>
-      </h2>
-      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-16 text-center">Skills</p>
+      <div className="section-heading">
+        <p className="en-label">Skills</p>
+        <h2><span className="gradient-text">技能特长</span></h2>
+        <div className="section-divider mt-5" />
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {skills.map((skill, i) => (

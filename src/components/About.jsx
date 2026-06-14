@@ -44,10 +44,11 @@ function TypewriterText({ text, speed = 60 }) {
 export default function About() {
   return (
     <SectionWrapper id="about">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
-        <span className="gradient-text">关于我</span>
-      </h2>
-      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-12 text-center">About Me</p>
+      <div className="section-heading">
+        <p className="en-label">About Me</p>
+        <h2><span className="gradient-text">关于我</span></h2>
+        <div className="section-divider mt-5" />
+      </div>
 
       <TypewriterText text={about.headline} />
 
@@ -57,10 +58,10 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col md:flex-row justify-center gap-6 mb-12 max-w-3xl mx-auto"
+        className="flex flex-col md:flex-row justify-center gap-5 mb-12 max-w-3xl mx-auto"
       >
         <div className="flex-1 glass p-2 overflow-hidden">
-          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white/[0.01] flex items-center justify-center">
             <img
               src={import.meta.env.BASE_URL + 'photos/life1.jpg'}
               alt="生活照"
@@ -73,7 +74,7 @@ export default function About() {
           </div>
         </div>
         <div className="flex-1 glass p-2 overflow-hidden">
-          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white/[0.02] flex items-center justify-center">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white/[0.01] flex items-center justify-center">
             <img
               src={import.meta.env.BASE_URL + 'photos/life2.jpg'}
               alt="生活照"
@@ -87,7 +88,8 @@ export default function About() {
         </div>
       </motion.div>
 
-      <div className="flex flex-wrap justify-center gap-3">
+      {/* Professional Tags */}
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
         {about.tags.map((tag) => (
           <span
             key={tag}
@@ -97,6 +99,29 @@ export default function About() {
           </span>
         ))}
       </div>
+
+      {/* Hobbies */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-center"
+      >
+        <p className="text-xs text-text-secondary/50 font-mono tracking-[0.2em] uppercase mb-4">
+          个人爱好
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          {about.hobbies.map((h) => (
+            <span
+              key={h}
+              className="px-4 py-2 glass-accent text-sm text-accent-purple font-serif-sc cursor-default"
+            >
+              {h}
+            </span>
+          ))}
+        </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

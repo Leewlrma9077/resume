@@ -6,10 +6,11 @@ import { education } from '../data/resumeData';
 export default function Education() {
   return (
     <SectionWrapper id="education">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
-        <span className="gradient-text">教育背景</span>
-      </h2>
-      <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-16 text-center">Education</p>
+      <div className="section-heading">
+        <p className="en-label">Education</p>
+        <h2><span className="gradient-text">教育背景</span></h2>
+        <div className="section-divider mt-5" />
+      </div>
 
       <div className="relative max-w-3xl mx-auto">
         {/* Timeline line */}

@@ -11,10 +11,11 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            <span className="gradient-text">联系我</span>
-          </h2>
-          <p className="text-accent-blue font-mono text-xs tracking-[0.15em] uppercase mb-12">Contact</p>
+          <div className="section-heading">
+            <p className="en-label">Contact</p>
+            <h2><span className="gradient-text">联系我</span></h2>
+            <div className="section-divider mt-5" />
+          </div>
         </motion.div>
 
         <motion.div

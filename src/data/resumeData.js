@@ -12,7 +12,8 @@ export const contact = {
 
 export const about = {
   headline: '具备电子信息及电气工程专业背景，拥有从0到1的嵌入式项目开发经验，能独立完成控制系统软硬件设计与实现。',
-  tags: ['嵌入式开发', 'PLC/CoDeSys', 'FreeRTOS', 'STM32', 'ARM Cortex-M', 'C/C++', 'ST语言', 'PCB设计'],
+  tags: ['嵌入式开发', '工业自动化', '控制系统', '软硬件全栈', 'ARM Cortex-M', 'C/C++', 'CoDeSys', 'PCB设计'],
+  hobbies: ['时事新闻', 'K-Pop', '唱歌'],
 };
 
 export const education = [
@@ -67,32 +68,27 @@ export const skills = [
   {
     category: '编程语言',
     icon: '💻',
-    items: ['C/C++', 'ST语言', 'Python', 'FBD'],
+    items: ['C/C++', 'ST (IEC 61131-3)', 'FBD', 'Python'],
   },
   {
-    category: 'MCU 平台',
+    category: '嵌入式平台',
     icon: '🔲',
-    items: ['ARM Cortex-M', 'STM32F1/F3/F4', 'GD32F470'],
+    items: ['ARM Cortex-M 架构', 'STM32 / GD32 系列', 'FreeRTOS', 'RT-Thread'],
   },
   {
-    category: '通信协议',
+    category: '通信接口',
     icon: '🔗',
-    items: ['UART', 'I2C', 'SPI', 'CAN', 'DMA'],
+    items: ['UART / I2C / SPI', 'CAN 总线', 'DMA', '自定义通信协议'],
   },
   {
-    category: '嵌入式 OS',
-    icon: '⚙️',
-    items: ['FreeRTOS', 'RT-Thread'],
-  },
-  {
-    category: '硬件设计',
+    category: '硬件工程',
     icon: '📐',
-    items: ['原理图设计', 'PCB Layout', '四层板设计'],
+    items: ['电路原理图设计', 'PCB Layout', '多层板设计', '硬件调试与测试'],
   },
   {
-    category: '工控/PLC',
+    category: '工业自动化',
     icon: '🏭',
-    items: ['CoDeSys', 'IEC 61499', 'EcoStruxure', 'DCS'],
+    items: ['IEC 61499 标准', 'CoDeSys 平台', 'EcoStruxure AE', 'DCS 分布式控制'],
   },
 ];
 
